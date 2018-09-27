@@ -20,21 +20,25 @@ if your _example_ is your sketch file name then it has the following directory s
 Now place the _doorsensor.h_ file according to the following: 
   ./example/doorsensor.h
   
-In your arduino code, use the _#include "doorsensor.h"_
+In your arduino code, use:
+```
+#include "doorsensor.h"
+```
 
 Then create a _DoorSensor_ instance e.g. _DS_ like this: 
-
+```
 DoorSensor DS(DOOR_SENSOR_PIN);
+```
 
 Then add the sensor interrupt code: 
 
-_void IRAM_ATTR DoorSensorInterrupt() 
+```
+void IRAM_ATTR DoorSensorInterrupt() 
 {
   portENTER_CRITICAL_ISR(&DSmux);
   //here add the respective sensor instanc's update code
   // <doorsensor object>.updateDoorState()
   DS.updateDoorState();
   portEXIT_CRITICAL_ISR(&DSmux);
-}_
-
-
+}
+```
