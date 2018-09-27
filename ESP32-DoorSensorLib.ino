@@ -2,15 +2,15 @@
 
 #define SERIAL_BAUD       115200
 
-/*************************************
+/**====================================
  * Door sensor and interrupt
  */
 DoorSensor DS(DOOR_SENSOR_PIN);
 void IRAM_ATTR DoorSensorInterrupt() 
 {
-  portENTER_CRITICAL_ISR(&mux);
+  portENTER_CRITICAL_ISR(&DSmux);
   DS.updateDoorState();
-  portEXIT_CRITICAL_ISR(&mux);
+  portEXIT_CRITICAL_ISR(&DSmux);
 }
 //====================================
 
@@ -19,7 +19,6 @@ void IRAM_ATTR DoorSensorInterrupt()
 void setup() 
 {
   Serial.begin(SERIAL_BAUD);
-  Serial.println("Monitoring Door: ");
   attachInterrupt(digitalPinToInterrupt(DOOR_SENSOR_PIN), DoorSensorInterrupt, CHANGE);
 }
  

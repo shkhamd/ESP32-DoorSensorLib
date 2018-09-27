@@ -1,4 +1,3 @@
-
 #define DOOR_SENSOR_PIN       12
 
 portMUX_TYPE DSmux = portMUX_INITIALIZER_UNLOCKED;
@@ -10,9 +9,9 @@ class DoorSensor {
       volatile byte _sensorChanged;
   
   public:
-      DoorSensor(const int sensorPin); //done
-      byte isDoorOpen(void);                //done
-      void updateDoorState(void);              //done
+      DoorSensor(const int sensorPin); 
+      byte isDoorOpen(void);               
+      void updateDoorState(void);      
       byte isDoorStateChanged(void);
 };
 
@@ -56,10 +55,4 @@ byte DoorSensor::isDoorStateChanged(void)
   }
   else return 0;
 }
-
-/*****************************************
- ************ Interrupt & Global Code***
- *****************************************/
-
-
-
+//END OF FILE
