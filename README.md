@@ -1,16 +1,12 @@
 # ESP32-DoorSensorLib
 An easy to setup library for ESP32 and door sensor with sensor interrupt input
 
-_DoorSensor_ class has three private variables manipulated by 4 public methods. 
+_**DoorSensor**_ class has three private variables manipulated by 4 public methods. 
 
-_DoorSensor(const int sensorPin)_ : Class constructor, initializes a door sensor pin as INPUT with Internal PULLUP enabled. 
-
-_byte isDoorOpen(void)_ : as the name goes, returns true if the door is open, else false. Called by USER code. 
-
-_void updateDoorState(void)_ : if the door state (OPEN, CLOSED). SHOULD BE CALLED inside the door sensor interrupt handler. 
-
-_byte isDoorStateChanged(void)_ : asserts _true_ if a sensor interrupts occur and the door state has been changed. Called by USER Code. 
-
+_**DoorSensor(const int sensorPin)**_ : Class constructor, initializes a door sensor pin as INPUT with Internal PULLUP enabled. 
+_**byte isDoorOpen(void)**_ : as the name goes, returns true if the door is open, else false. Called by USER code. 
+_**void updateDoorState(void)**_ : if the door state (OPEN, CLOSED). SHOULD BE CALLED inside the door sensor interrupt handler. 
+_**byte isDoorStateChanged(void)**_ : asserts _true_ if a sensor interrupts occur and the door state has been changed. Called by USER Code. 
 
 ## How to use the library: 
 
